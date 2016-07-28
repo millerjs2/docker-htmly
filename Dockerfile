@@ -1,23 +1,27 @@
-FROM alpine:edge
-MAINTAINER Christoph Wiechert <wio@psitrax.de>
+FROM alpine:latest
+MAINTAINER John Miller <john@harleydigital.com>
 
-RUN apk update \
-    && apk add bash nginx ca-certificates \
-    php-fpm php-json php-zlib php-xml php-pdo php-phar php-openssl \
-    php-pdo_mysql php-mysqli \
-    php-gd php-iconv php-mcrypt 
+# Get the packages
+RUN apk add --no-cache \
+        bash nginx ca-certificates \
+        php5-fpm php5-json php5-zlib php5-xml php5-gd php5-pdo \
+        php5-phar php5-openssl php5-zip php5-iconv php5-mcrypt musl \
+        && rm -rf /var/cache/apk/*
 
-# fix php-fpm "Error relocating /usr/bin/php-fpm: __flt_rounds: symbol not found" bug
-RUN apk add -u musl
-RUN rm -rf /var/cache/apk/*
+# add the necessary files
+ADD nginx.conf /etc/nginx
+ADD php-fpm.conf /etc/php
+ADD run.sh /
+ADD index.php /
 
-ADD files/nginx.conf /etc/nginx/
-ADD files/php-fpm.conf /etc/php/
-ADD files/run.sh /
+# make the run script executable
 RUN chmod +x /run.sh
 
-
+# open the port
 EXPOSE 80
-VOLUME ["/DATA"]
 
+# set the data volume
+VOLUME ["/data/"]
+
+# start
 CMD ["/run.sh"]

@@ -10,7 +10,7 @@ Build the image:
 ```bash
 docker build -t you/imagename
 ```
-Star the image:
+Start the image:
 ```bash
 docker run -v /data:/data -p 80:80 you/imagename
 ```

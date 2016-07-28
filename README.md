@@ -8,7 +8,7 @@ Lightwight Docker image for the (latest) PHP-FPM and Nginx based on [AlpineLinux
 ### Usage
 Build the image:
 ```bash
-docker build -t you/imagename
+docker build -t you/imagename .
 ```
 Start the image:
 ```bash

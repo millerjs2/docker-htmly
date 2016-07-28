@@ -1,10 +1,7 @@
-# Docker image based on Alpine linux, with nginx and php-fpm
+# Docker image for [HTMLy](https://github.com/danpros/htmly) blogging platform
 
-Lightwight Docker image for the (latest) PHP-FPM and Nginx based on [AlpineLinux](http://alpinelinux.org)
+Currently doesn't work - in progress.
 
-* Small image: 45MB
-* New packages (alpine:latest)
-  
 ### Usage
 Build the image:
 ```bash
@@ -15,7 +12,7 @@ Start the image:
 docker run -v /data:/data -p 80:80 you/imagename
 ```
 
-Browse to http://dockerip/index.php to view the phpinfo() output.
+Browse to http://dockerip/installer.php to start the install process.
 
 ### Volume structure
 

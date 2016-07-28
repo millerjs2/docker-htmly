@@ -3,7 +3,7 @@
 Lightwight Docker image for the (latest) PHP-FPM and Nginx based on [AlpineLinux](http://alpinelinux.org)
 
 * Small image: 45MB
-* New packages (alpine:latest) 2015-04-03:
+* New packages (alpine:latest)
   
 ### Usage
 ```bash

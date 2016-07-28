@@ -10,7 +10,7 @@ RUN apk add --no-cache \
 
 # add the necessary files
 ADD nginx.conf /etc/nginx
-ADD php-fpm.conf /etc/php
+ADD php-fpm.conf /etc/php5
 ADD run.sh /
 ADD index.php /
 

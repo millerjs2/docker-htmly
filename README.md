@@ -6,8 +6,13 @@ Lightwight Docker image for the (latest) PHP-FPM and Nginx based on [AlpineLinux
 * New packages (alpine:latest)
   
 ### Usage
+Build the image:
 ```bash
-sudo docker run -v /data:/DATA -p 80:80 psitrax/php-nginx
+docker build -t you/imagename
+```
+Star the image:
+```bash
+docker run -v /data:/data -p 80:80 you/imagename
 ```
 
 Browse to http://dockerip/index.php to view the phpinfo() output.
